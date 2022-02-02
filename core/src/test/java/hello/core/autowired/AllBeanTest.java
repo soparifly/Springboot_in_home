@@ -14,6 +14,10 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.*;
 
+/**
+ * new AnnotationConfigApplicationContext를 통해 스프링 컨테이너생성
+ * AutoAppConfig.class, DiscountService.class 를 파라미터로 넘겨서 클래스를 자동으로 스프링 빈으로 등록한다
+ */
 public class AllBeanTest {
 
     @Test
@@ -58,8 +62,7 @@ public class AllBeanTest {
             System.out.println("discountCode = " + discountCode);
             System.out.println("discountPolicy = " + discountPolicy);
 
-            return discountPolicy.discount(member,price
-            );
+            return discountPolicy.discount(member,price);
         }
 
     }
