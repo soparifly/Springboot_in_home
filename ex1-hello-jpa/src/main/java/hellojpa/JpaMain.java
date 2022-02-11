@@ -82,20 +82,25 @@ public class JpaMain {
              *         m
              *     from
              *         Member as m select
-                    * member0_.id as id1_0_,
+             * member0_.id as id1_0_,
              *member0_.name as name2_0_
-                    * from
-                    * Member member0_ limit ?offset ?
+             * from
+             * Member member0_ limit ?offset ?
              *member.name = HelloB
              * ㄱ
-                    */
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(1)
-                    .setMaxResults(8)
-                    .getResultList();
+             //                    */
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .setFirstResult(1)
+//                    .setMaxResults(8)
+//                    .getResultList();
+//
+//            for (Member member : result) {
+//            }
 
-            for (Member member : result) {
-            }
+            Member member = new Member();
+            member.setUsername("A");
+            member.setRoleType(RoleType.USER);
+            em.persist(member);
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
