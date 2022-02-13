@@ -3,26 +3,23 @@ package hellojpa;
 import javax.persistence.*;
 
 @Entity
-public class Product {
-
+public class Locker {
     @Id
-    @Column(name = "PRODUCT_ID")
-    private String id;
+    @GeneratedValue
+    @Column(name =" LOCKER_ID")
+    private Long id;
 
-//    @Id
-//    @GeneratedValue
-//    @Column(name = "MEMBER_ID")
-//    private Long Id;
-
-    @Column(name = "USERNAME")
     private String name;
 
+//연관관계 대상
+    @OneToOne(mappedBy = "locker")
+    private Member member;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
